@@ -1,10 +1,5 @@
-import { Container } from 'components/Container'
-import Input from 'components/Input'
+import IndexTemplate from 'templates/index'
 
 export default function IndexPage() {
-  return (
-    <Container>
-      <Input />
-    </Container>
-  )
+  return <IndexTemplate />
 }

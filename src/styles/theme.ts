@@ -4,6 +4,9 @@ const theme = {
     black: '#000',
     lightBlue: '#42B4E2',
     gray: '#EBEBEB'
+  },
+  rounded: {
+    lg: '1rem'
   }
 } as const
 

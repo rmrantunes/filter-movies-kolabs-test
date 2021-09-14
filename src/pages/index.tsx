@@ -1,3 +1,10 @@
+import { Container } from 'components/Container'
+import Input from 'components/Input'
+
 export default function IndexPage() {
-  return <h1>Next + Typescript setup</h1>
+  return (
+    <Container>
+      <Input />
+    </Container>
+  )
 }

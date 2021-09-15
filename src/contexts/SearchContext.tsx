@@ -17,7 +17,7 @@ export const SearchProvider: React.FC = (props) => {
     (router.query?.filter as string) || 'multi'
   )
   const [searchText, setSearchText] = useState(
-    (router.query?.query as string) || 'teste'
+    (router.query?.query as string) || ''
   )
 
   const handleFilter = useCallback(

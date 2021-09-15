@@ -11,9 +11,12 @@ export const Aside = styled.aside`
 export const Header = styled.div`
   ${({ theme }) => css`
     padding: 1rem;
-    font-size: 1.125rem;
     color: ${theme.colors.white};
     background: ${({ theme }) => theme.colors.lightBlue};
+
+    h2 {
+      font-size: 1.125rem;
+    }
   `}
 `
 

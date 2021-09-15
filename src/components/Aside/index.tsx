@@ -13,9 +13,9 @@ export default function Aside() {
         </S.Header>
         <S.Nav>
           <FilterButton
-            onClick={() => ({})}
-            filter="multi"
-            isActive={filter === 'multi'}
+            onClick={handleFilter}
+            filter="all"
+            isActive={filter === 'all'}
           >
             Tudo
           </FilterButton>

@@ -53,7 +53,7 @@ export const SearchProvider: React.FC = (props) => {
       case 'person':
         return results?.filter((result) => result.media_type === 'person')
     }
-  }, [filter])
+  }, [filter, results])
 
   const handleFilter = useCallback((filter?: Filters) => {
     setFilter(filter)

@@ -6,7 +6,7 @@ export const MainGrid = styled.div`
   gap: 2rem;
   grid-template-columns: 16rem 1fr;
 
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `

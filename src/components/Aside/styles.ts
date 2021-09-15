@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 
-export const Aside = styled.aside`
+export const Aside = styled.aside``
+
+export const Filters = styled.div`
   ${({ theme }) => css`
     border-radius: ${theme.rounded.lg};
     overflow: hidden;

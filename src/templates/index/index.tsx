@@ -2,20 +2,21 @@ import Aside from 'components/Aside'
 import Card from 'components/Card'
 import { Container } from 'components/Container'
 import Search from 'components/Search'
-import {
-  MovieResponse,
-  PersonResponse,
-  TvResponse
-} from 'types/themoviedb-response'
+import { useSearch } from 'hooks/useSearch'
+import { useEffect } from 'react'
+import { MovieDBMultiResponse } from 'types/themoviedb-response'
 
 import * as S from './styles'
 
-export type IndexTemplateProps =
-  | { filter: 'tv'; response: TvResponse }
-  | { filter: 'movie'; response: MovieResponse }
-  | { filter: 'person'; response: PersonResponse }
+export type IndexTemplateProps = { response: MovieDBMultiResponse }
 
 export default function IndexTemplate(props: IndexTemplateProps) {
+  const { setResults } = useSearch()
+
+  useEffect(() => {
+    setResults(props.response.results)
+  }, [])
+
   return (
     <Container>
       <Search />

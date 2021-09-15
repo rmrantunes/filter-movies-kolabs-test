@@ -1,6 +1,6 @@
 import Aside from 'components/Aside'
 import { Container } from 'components/Container'
-import Input from 'components/Input'
+import Search from 'components/Search'
 import {
   MovieResponse,
   PersonResponse,
@@ -20,7 +20,7 @@ export type IndexTemplateProps =
 export default function IndexTemplate(props: IndexTemplateProps) {
   return (
     <Container>
-      <Input />
+      <Search />
       <S.MainGrid>
         <Aside />
       </S.MainGrid>

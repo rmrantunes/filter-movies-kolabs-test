@@ -37,7 +37,7 @@ export const SearchProvider: React.FC = (props) => {
   const handleSearch = useCallback(
     (event: React.FormEvent) => {
       event.preventDefault()
-      if (searchText.trim()) return
+      if (!searchText.trim()) return
 
       router.push({
         pathname: '/',

@@ -3,7 +3,8 @@ const theme = {
     white: '#FFF',
     black: '#000',
     lightBlue: '#42B4E2',
-    gray: '#EBEBEB'
+    gray: '#EBEBEB',
+    textGray: '#BCBCBC'
   },
   rounded: {
     lg: '1rem'

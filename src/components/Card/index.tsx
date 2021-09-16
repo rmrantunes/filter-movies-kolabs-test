@@ -16,7 +16,7 @@ export default function Card(props: CardProps) {
           <S.Title>{props.title}</S.Title>
           <S.Subtitle>{props.subtitle}</S.Subtitle>
         </div>
-        <p>{props.description}</p>
+        <S.Description>{props.description}</S.Description>
       </S.Content>
     </S.Wrapper>
   )

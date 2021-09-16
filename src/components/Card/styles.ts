@@ -43,3 +43,14 @@ export const Subtitle = styled.span`
   font-size: 1rem;
   color: ${(props) => props.theme.colors.textGray};
 `
+
+export const Description = styled.p`
+  width: 100%;
+  font-size: 0.875rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+`

@@ -14,10 +14,11 @@ export type SearchContextValue = {
     tv: number
     person: number
   }
+  history: string[]
   setResults: React.Dispatch<React.SetStateAction<MultiResult[]>>
   setSearchText: React.Dispatch<React.SetStateAction<string>>
   handleFilter: (filter?: string) => void
-  handleSearch: (event: React.FormEvent) => void
+  handleSearch: (text?: string) => (event: React.FormEvent) => void
 }
 
 export const SearchContext = createContext({} as SearchContextValue)
@@ -29,6 +30,7 @@ export const SearchProvider: React.FC = (props) => {
   const [searchText, setSearchText] = useState(
     (router.query?.query as string) || ''
   )
+  const [history, setHistory] = useState<string[]>([])
 
   const mediaTypesCount = useMemo(() => {
     return {
@@ -60,16 +62,22 @@ export const SearchProvider: React.FC = (props) => {
   }, [])
 
   const handleSearch = useCallback(
-    (event: React.FormEvent) => {
-      event.preventDefault()
-      if (!searchText.trim()) return
+    (text?: string) => {
+      return (event: React.FormEvent) => {
+        event.preventDefault()
+        if (!text?.trim() || !searchText.trim()) return
 
-      router.push({
-        pathname: '/',
-        query: {
-          query: searchText
-        }
-      })
+        const query = text || searchText
+
+        router.push({
+          pathname: '/',
+          query: {
+            query
+          }
+        })
+
+        setHistory((history) => [...history, query])
+      }
     },
     [searchText]
   )
@@ -81,6 +89,7 @@ export const SearchProvider: React.FC = (props) => {
         searchText,
         results: resultsToDisplay,
         mediaTypesCount,
+        history,
         setSearchText,
         handleFilter,
         handleSearch,

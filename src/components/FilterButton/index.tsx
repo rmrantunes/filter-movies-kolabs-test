@@ -17,6 +17,7 @@ export default function FilterLink(props: FilterLinkProps) {
   return (
     <S.FilterButton isActive={props.isActive} onClick={handleFilter}>
       {props.children}
+      {props.count !== undefined && <S.CountBadge>{props.count}</S.CountBadge>}
     </S.FilterButton>
   )
 }

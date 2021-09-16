@@ -18,7 +18,7 @@ export type SearchContextValue = {
   setResults: React.Dispatch<React.SetStateAction<MultiResult[]>>
   setSearchText: React.Dispatch<React.SetStateAction<string>>
   handleFilter: (filter?: string) => void
-  handleSearch: (text?: string) => (event: React.FormEvent) => void
+  search: (text: string) => void
 }
 
 export const SearchContext = createContext({} as SearchContextValue)
@@ -61,26 +61,16 @@ export const SearchProvider: React.FC = (props) => {
     setFilter(filter)
   }, [])
 
-  const handleSearch = useCallback(
-    (text?: string) => {
-      return (event: React.FormEvent) => {
-        event.preventDefault()
-        if (!text?.trim() || !searchText.trim()) return
-
-        const query = text || searchText
-
-        router.push({
-          pathname: '/',
-          query: {
-            query
-          }
-        })
-
-        setHistory((history) => [...history, query])
+  const search = useCallback((text: string) => {
+    router.push({
+      pathname: '/',
+      query: {
+        query: text
       }
-    },
-    [searchText]
-  )
+    })
+
+    setHistory((history) => [...history, text])
+  }, [])
 
   return (
     <SearchContext.Provider
@@ -92,7 +82,7 @@ export const SearchProvider: React.FC = (props) => {
         history,
         setSearchText,
         handleFilter,
-        handleSearch,
+        search,
         setResults
       }}
     >

@@ -4,7 +4,7 @@ type EventKey = string
 
 export function useKeydown(
   callbacks: Record<EventKey, (event: KeyboardEvent) => any>,
-  deps?: DependencyList
+  deps: DependencyList = []
 ) {
   useEffect(() => {
     function cb(event: KeyboardEvent) {

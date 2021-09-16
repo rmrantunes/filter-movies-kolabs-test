@@ -8,12 +8,9 @@ export type ModalProps = {
 }
 
 export default function Modal(props: ModalProps) {
-  useKeydown(
-    {
-      Escape: props.onClose
-    },
-    []
-  )
+  useKeydown({
+    Escape: props.onClose
+  })
 
   return (
     <>

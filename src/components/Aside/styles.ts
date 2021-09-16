@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components'
 
-export const Aside = styled.aside``
+export const Aside = styled.aside`
+  align-self: flex-start;
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+`
 
 export const AsideCard = styled.div`
   ${({ theme }) => css`

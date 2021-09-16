@@ -5,11 +5,12 @@ export type CardProps = {
   subtitle: string
   image: string
   description: string
+  onClick(): void
 }
 
 export default function Card(props: CardProps) {
   return (
-    <S.Wrapper>
+    <S.Wrapper onClick={props.onClick}>
       <S.Image source={props.image} aria-label={props.title} />
       <S.Content>
         <div>

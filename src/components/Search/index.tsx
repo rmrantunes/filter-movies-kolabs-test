@@ -3,14 +3,19 @@ import React from 'react'
 import * as S from './styles'
 
 export default function Search() {
-  const { handleSearch, searchText, setSearchText } = useSearch()
+  const { search, searchText, setSearchText } = useSearch()
+
+  function handleSubmit(event: React.FormEvent) {
+    event.preventDefault()
+    search(searchText)
+  }
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setSearchText(event.target.value)
   }
 
   return (
-    <S.Form onSubmit={handleSearch()}>
+    <S.Form onSubmit={handleSubmit}>
       <S.Input
         placeholder="Ex: Avengers"
         onChange={handleChange}

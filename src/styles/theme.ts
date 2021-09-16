@@ -7,7 +7,8 @@ const theme = {
     textGray: '#BCBCBC'
   },
   rounded: {
-    lg: '0.5rem'
+    lg: '0.5rem',
+    full: '999px'
   }
 } as const
 

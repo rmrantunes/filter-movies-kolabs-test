@@ -69,7 +69,12 @@ export const SearchProvider: React.FC = (props) => {
       }
     })
 
-    setHistory((history) => [...history, text])
+    setHistory((history) => {
+      if (history.includes(text)) {
+        return history
+      }
+      return [...history, text]
+    })
   }, [])
 
   return (

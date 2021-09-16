@@ -15,7 +15,7 @@ export default function IndexTemplate(props: IndexTemplateProps) {
 
   useEffect(() => {
     setResults(props.response.results)
-  }, [])
+  }, [props.response])
 
   return (
     <Container>

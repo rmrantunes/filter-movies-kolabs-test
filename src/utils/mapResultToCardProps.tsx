@@ -3,6 +3,8 @@ import { MediaType, MultiResult } from 'types/themoviedb-response'
 import { formatDate } from 'utils/formatDate'
 
 const MOVIE_DB_IMAGE_ENDPOINT = 'https://image.tmdb.org/t/p/original'
+const IMAGE_PLACEHOLDER =
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthealmanian.com%2Fwp-content%2Fuploads%2F2019%2F01%2Fproduct_image_thumbnail_placeholder.png&f=1&nofb=1'
 
 export function mapResultToCardProps(result: MultiResult): CardProps {
   switch (result.media_type) {
@@ -11,7 +13,9 @@ export function mapResultToCardProps(result: MultiResult): CardProps {
         title: result.original_title,
         subtitle: result.release_date ? formatDate(result.release_date) : '',
         description: result.overview,
-        image: MOVIE_DB_IMAGE_ENDPOINT + result.backdrop_path
+        image: result.backdrop_path
+          ? MOVIE_DB_IMAGE_ENDPOINT + result.backdrop_path
+          : IMAGE_PLACEHOLDER
       }
     case MediaType.Tv:
       return {
@@ -20,7 +24,9 @@ export function mapResultToCardProps(result: MultiResult): CardProps {
           ? formatDate(result.first_air_date)
           : '',
         description: result.overview,
-        image: MOVIE_DB_IMAGE_ENDPOINT + result.backdrop_path
+        image: result.backdrop_path
+          ? MOVIE_DB_IMAGE_ENDPOINT + result.backdrop_path
+          : IMAGE_PLACEHOLDER
       }
     case MediaType.Person:
       return {
@@ -30,7 +36,9 @@ export function mapResultToCardProps(result: MultiResult): CardProps {
           .map(({ title }) => (title ? `'${title}'` : ''))
           .filter(Boolean)
           .join(', ')}`,
-        image: MOVIE_DB_IMAGE_ENDPOINT + result.profile_path
+        image: result.profile_path
+          ? MOVIE_DB_IMAGE_ENDPOINT + result.profile_path
+          : IMAGE_PLACEHOLDER
       }
   }
 }

@@ -10,7 +10,7 @@ export default function Search() {
   }
 
   return (
-    <S.Form onSubmit={handleSearch}>
+    <S.Form onSubmit={handleSearch()}>
       <S.Input
         placeholder="Ex: Avengers"
         onChange={handleChange}

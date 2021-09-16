@@ -3,7 +3,7 @@ import * as S from './styles'
 import { useSearch } from 'hooks/useSearch'
 
 export default function Aside() {
-  const { handleFilter, filter } = useSearch()
+  const { handleFilter, filter, mediaTypesCount } = useSearch()
 
   return (
     <S.Aside>
@@ -16,6 +16,7 @@ export default function Aside() {
             onClick={handleFilter}
             filter="all"
             isActive={filter === 'all'}
+            count={mediaTypesCount.all}
           >
             Tudo
           </FilterButton>
@@ -23,6 +24,7 @@ export default function Aside() {
             onClick={handleFilter}
             filter="movie"
             isActive={filter === 'movie'}
+            count={mediaTypesCount.movie}
           >
             Filmes
           </FilterButton>
@@ -30,6 +32,7 @@ export default function Aside() {
             onClick={handleFilter}
             filter="tv"
             isActive={filter === 'tv'}
+            count={mediaTypesCount.tv}
           >
             Séries
           </FilterButton>
@@ -37,6 +40,7 @@ export default function Aside() {
             onClick={handleFilter}
             filter="person"
             isActive={filter === 'person'}
+            count={mediaTypesCount.person}
           >
             Pessoas
           </FilterButton>

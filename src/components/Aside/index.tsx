@@ -7,11 +7,11 @@ export default function Aside() {
 
   return (
     <S.Aside>
-      <S.Filters>
-        <S.Header>
+      <S.AsideCard>
+        <S.AsideCardHeader>
           <h2>Resultado da Busca</h2>
-        </S.Header>
-        <S.Nav>
+        </S.AsideCardHeader>
+        <S.AsideNav>
           <FilterButton
             onClick={handleFilter}
             filter="all"
@@ -40,8 +40,8 @@ export default function Aside() {
           >
             Pessoas
           </FilterButton>
-        </S.Nav>
-      </S.Filters>
+        </S.AsideNav>
+      </S.AsideCard>
     </S.Aside>
   )
 }

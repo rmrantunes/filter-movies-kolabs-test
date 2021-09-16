@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 export const Aside = styled.aside``
 
-export const Filters = styled.div`
+export const AsideCard = styled.div`
   ${({ theme }) => css`
     border-radius: ${theme.rounded.lg};
     overflow: hidden;
@@ -10,7 +10,7 @@ export const Filters = styled.div`
   `}
 `
 
-export const Header = styled.div`
+export const AsideCardHeader = styled.div`
   ${({ theme }) => css`
     padding: 1rem;
     color: ${theme.colors.white};
@@ -22,6 +22,6 @@ export const Header = styled.div`
   `}
 `
 
-export const Nav = styled.nav`
+export const AsideNav = styled.nav`
   padding: 0.5rem 0;
 `

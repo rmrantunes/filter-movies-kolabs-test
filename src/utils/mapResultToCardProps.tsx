@@ -1,5 +1,6 @@
 import { CardProps } from 'components/Card'
 import { MediaType, MultiResult } from 'types/themoviedb-response'
+import { formatDate } from 'utils/formatDate'
 
 const MOVIE_DB_IMAGE_ENDPOINT = 'https://image.tmdb.org/t/p/original'
 
@@ -8,14 +9,16 @@ export function mapResultToCardProps(result: MultiResult): CardProps {
     case MediaType.Movie:
       return {
         title: result.original_title,
-        subtitle: result.release_date,
+        subtitle: result.release_date ? formatDate(result.release_date) : '',
         description: result.overview,
         image: MOVIE_DB_IMAGE_ENDPOINT + result.backdrop_path
       }
     case MediaType.Tv:
       return {
         title: result.name,
-        subtitle: result.first_air_date.toLocaleDateString(),
+        subtitle: result.first_air_date
+          ? formatDate(result.first_air_date)
+          : '',
         description: result.overview,
         image: MOVIE_DB_IMAGE_ENDPOINT + result.backdrop_path
       }

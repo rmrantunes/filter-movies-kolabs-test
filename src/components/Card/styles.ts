@@ -3,20 +3,17 @@ import styled, { css } from 'styled-components'
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     display: grid;
-    height: 7.5rem;
-    grid-template-columns: 6rem 1fr;
+    height: 8rem;
+    grid-template-columns: 5.5rem 1fr;
     border-radius: ${theme.rounded.lg};
-    gap: 1rem;
     border: 1px solid ${theme.colors.gray};
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     transition: all 0.2s;
     cursor: pointer;
 
-    &:hover,
-    &:focus {
-      border-color: ${theme.colors.lightBlue};
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0);
+    & + & {
+      margin-top: 1rem;
     }
   `};
 `
@@ -28,14 +25,14 @@ export const Image = styled.div<{ source: string; 'aria-label': string }>`
 `
 
 export const Content = styled.div`
-  padding: 1rem 0;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `
 
 export const Title = styled.h2`
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 500;
 `
 

@@ -3,7 +3,7 @@ import * as S from './styles'
 import { useSearch } from 'hooks/useSearch'
 
 export default function Aside() {
-  const { handleFilter, filter, mediaTypesCount } = useSearch()
+  const { handleFilter, filter, mediaTypesCount, history, search } = useSearch()
 
   return (
     <S.Aside>
@@ -46,6 +46,24 @@ export default function Aside() {
           </FilterButton>
         </S.AsideNav>
       </S.AsideCard>
+      {!!history.length && (
+        <S.AsideCard>
+          <S.AsideCardHeader>
+            <h2>Histórico de Busca</h2>
+          </S.AsideCardHeader>
+          <S.AsideNav>
+            {history.map((searchText) => (
+              <FilterButton
+                isActive={false}
+                key={searchText}
+                onClick={() => search(searchText)}
+              >
+                {searchText}
+              </FilterButton>
+            ))}
+          </S.AsideNav>
+        </S.AsideCard>
+      )}
     </S.Aside>
   )
 }

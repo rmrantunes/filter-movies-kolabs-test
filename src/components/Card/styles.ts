@@ -37,7 +37,7 @@ export const Title = styled.h2`
 `
 
 export const Subtitle = styled.span`
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: ${(props) => props.theme.colors.textGray};
 `
 

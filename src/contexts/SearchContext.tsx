@@ -21,12 +21,16 @@ export type SearchContextValue = {
   search: (text: string) => void
 }
 
+export type SearchProviderProps = {
+  results: MultiResult[]
+}
+
 export const SearchContext = createContext({} as SearchContextValue)
 
-export const SearchProvider: React.FC = (props) => {
+export const SearchProvider: React.FC<SearchProviderProps> = (props) => {
   const router = useRouter()
   const [filter, setFilter] = useState<Filters>('all')
-  const [results, setResults] = useState<MultiResult[]>(null)
+  const [results, setResults] = useState<MultiResult[]>(props.results)
   const [searchText, setSearchText] = useState(
     (router.query?.query as string) || ''
   )

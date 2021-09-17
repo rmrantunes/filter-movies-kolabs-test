@@ -11,13 +11,7 @@ import * as S from './styles'
 
 export type IndexTemplateProps = { response: MovieDBMultiResponse }
 
-export default function IndexTemplate(props: IndexTemplateProps) {
-  const { setResults } = useSearch()
-
-  useEffect(() => {
-    setResults(props.response.results)
-  }, [props.response])
-
+export default function IndexTemplate() {
   return (
     <S.Wrapper>
       <Container>

@@ -1,12 +1,13 @@
 import { GetServerSideProps } from 'next'
 import IndexTemplate, { IndexTemplateProps } from 'templates/index'
 import { responseMock } from 'templates/index/mock'
+import { MovieDBMultiResponse } from 'types/themoviedb-response'
 import { extractYearFromQuery } from 'utils/extractYearFromQuery'
 
-type IndexPageProps = IndexTemplateProps
+type IndexPageProps = { response: MovieDBMultiResponse }
 
-export default function IndexPage(props: IndexPageProps) {
-  return <IndexTemplate {...props} />
+export default function IndexPage() {
+  return <IndexTemplate />
 }
 
 export const getServerSideProps: GetServerSideProps<IndexPageProps> = async (

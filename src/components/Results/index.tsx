@@ -7,6 +7,7 @@ import Modal from 'components/Modal'
 
 import { mapResultToCardProps } from 'utils/mapResultToCardProps'
 import { DetailedResult } from 'components/DetailedResult'
+import NoResults from 'components/NoResults'
 
 export function Results() {
   const { results } = useSearch()
@@ -21,6 +22,7 @@ export function Results() {
   return (
     <>
       <div>
+        {!results?.length && <NoResults />}
         {results?.map((result, index) => (
           <Card
             key={result.id}

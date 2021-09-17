@@ -1,5 +1,7 @@
-import { useSearch } from 'hooks/useSearch'
 import React from 'react'
+import { SearchIcon } from '@heroicons/react/outline'
+import { useSearch } from 'hooks/useSearch'
+
 import * as S from './styles'
 
 export default function Search() {
@@ -16,6 +18,7 @@ export default function Search() {
 
   return (
     <S.Form onSubmit={handleSubmit}>
+      <SearchIcon fontSize={24} />
       <S.Input
         placeholder="Ex: Avengers"
         onChange={handleChange}

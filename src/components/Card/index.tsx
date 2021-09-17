@@ -5,7 +5,7 @@ export type CardProps = {
   subtitle: string
   image: string
   description: string
-  onClick(): void
+  onClick?: () => void
 }
 
 export default function Card(props: CardProps) {

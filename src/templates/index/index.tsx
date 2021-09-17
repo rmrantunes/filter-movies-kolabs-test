@@ -19,12 +19,14 @@ export default function IndexTemplate(props: IndexTemplateProps) {
   }, [props.response])
 
   return (
-    <Container>
-      <Search />
-      <S.MainGrid>
-        <Aside />
-        <Results />
-      </S.MainGrid>
-    </Container>
+    <S.Wrapper>
+      <Container>
+        <Search />
+        <S.MainGrid>
+          <Aside />
+          <Results />
+        </S.MainGrid>
+      </Container>
+    </S.Wrapper>
   )
 }

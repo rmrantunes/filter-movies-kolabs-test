@@ -1,6 +1,7 @@
 import { CardProps } from 'components/Card'
 import { MediaType, MultiResult } from 'types/themoviedb-response'
 import { formatDate } from 'utils/formatDate'
+import { generateKnownFor } from 'utils/generateKnownFor'
 
 const MOVIE_DB_IMAGE_ENDPOINT = 'https://image.tmdb.org/t/p/original'
 const IMAGE_PLACEHOLDER =
@@ -32,10 +33,7 @@ export function mapResultToCardProps(result: MultiResult): CardProps {
       return {
         title: result.name,
         subtitle: result.known_for_department,
-        description: `Conhecido por: ${result.known_for
-          .map(({ title }) => (title ? `'${title}'` : ''))
-          .filter(Boolean)
-          .join(', ')}`,
+        description: generateKnownFor(result.known_for),
         image: result.profile_path
           ? MOVIE_DB_IMAGE_ENDPOINT + result.profile_path
           : IMAGE_PLACEHOLDER

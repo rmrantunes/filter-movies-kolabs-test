@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.4",
     "babel-runtime": "^6.26.0",
     "next": "11.1.2",
     "react": "17.0.2",

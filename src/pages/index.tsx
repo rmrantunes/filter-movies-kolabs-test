@@ -12,6 +12,11 @@ export default function IndexPage(props: IndexPageProps) {
 export const getServerSideProps: GetServerSideProps<IndexPageProps> = async (
   ctx
 ) => {
+  if (!ctx.query.query)
+    return {
+      props: { response: { results: [] } }
+    }
+
   const MOVIES_DB_API_KEY = process.env.MOVIES_DB_API_KEY
 
   const { query, year } = extractYearFromQuery(ctx.query.query as string)

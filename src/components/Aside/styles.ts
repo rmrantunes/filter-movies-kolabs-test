@@ -30,3 +30,13 @@ export const AsideCardHeader = styled.div`
 export const AsideNav = styled.nav`
   padding: 0.5rem 0;
 `
+
+export const YearShortcutTip = styled.p`
+  font-size: 0.875rem;
+
+  svg {
+    width: 1.125rem;
+    vertical-align: bottom;
+    margin-right: 0.125rem;
+  }
+`

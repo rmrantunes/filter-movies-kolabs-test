@@ -1,6 +1,7 @@
+import { InformationCircleIcon } from '@heroicons/react/outline'
+import { useSearch } from 'hooks/useSearch'
 import FilterButton from 'components/FilterButton'
 import * as S from './styles'
-import { useSearch } from 'hooks/useSearch'
 
 export default function Aside() {
   const { handleFilter, filter, mediaTypesCount, history, search } = useSearch()
@@ -64,6 +65,11 @@ export default function Aside() {
           </S.AsideNav>
         </S.AsideCard>
       )}
+      <S.YearShortcutTip>
+        <InformationCircleIcon />
+        Dica: você pode usar o filtro 'y:' para limitar seus resultados por ano.
+        Exemplo: 'tropa de elite y:2007'
+      </S.YearShortcutTip>
     </S.Aside>
   )
 }

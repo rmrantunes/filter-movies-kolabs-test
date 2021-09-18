@@ -9,7 +9,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <SearchProvider results={pageProps.response.results}>
+      <SearchProvider results={pageProps.response?.results}>
         <Component {...pageProps} />
       </SearchProvider>
     </ThemeProvider>

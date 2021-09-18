@@ -1,5 +1,11 @@
 import { useRouter } from 'next/router'
-import React, { createContext, useCallback, useMemo, useState } from 'react'
+import React, {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState
+} from 'react'
 import { MultiResult } from 'types/themoviedb-response'
 
 export type Filters = 'person' | 'tv' | 'movie' | 'all'
@@ -35,6 +41,10 @@ export const SearchProvider: React.FC<SearchProviderProps> = (props) => {
     (router.query?.query as string) || ''
   )
   const [history, setHistory] = useState<string[]>([])
+
+  useEffect(() => {
+    setResults(props.results)
+  }, [props.results])
 
   const mediaTypesCount = useMemo(() => {
     return {

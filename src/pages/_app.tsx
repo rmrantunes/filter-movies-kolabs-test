@@ -10,16 +10,16 @@ import theme from 'styles/theme'
 
 import 'nprogress/nprogress.css'
 
+function start() {
+  Nprogress.start()
+}
+
+function done() {
+  Nprogress.done()
+}
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    function start() {
-      Nprogress.start()
-    }
-
-    function done() {
-      Nprogress.done()
-    }
-
     Router.events.on('routeChangeStart', start)
     Router.events.on('routeChangeComplete', done)
     Router.events.on('routeChangeError', done)

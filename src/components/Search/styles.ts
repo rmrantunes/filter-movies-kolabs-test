@@ -2,14 +2,14 @@ import styled, { css } from 'styled-components'
 
 export const Form = styled.form`
   ${({ theme }) => css`
-    display: flex;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1.125rem 1fr;
+    align-items: center;
+
     padding: 1rem;
     border-bottom: 1px solid ${theme.colors.gray};
     transition: all 0.2s;
-
-    & * + * {
-      margin-left: 1rem;
-    }
 
     &:focus-within {
       border-bottom-color: ${theme.colors.lightBlue};

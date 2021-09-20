@@ -1,35 +1,22 @@
+import { MovieDBMultiResponse } from 'types/themoviedb-response'
+
 import Aside from 'components/Aside'
-import Card from 'components/Card'
 import { Container } from 'components/Container'
 import Search from 'components/Search'
-import {
-  MovieResponse,
-  PersonResponse,
-  TvResponse
-} from 'types/themoviedb-response'
+import { Results } from 'components/Results'
 
 import * as S from './styles'
 
-export type IndexTemplateProps =
-  | { filter: 'tv'; response: TvResponse }
-  | { filter: 'movie'; response: MovieResponse }
-  | { filter: 'person'; response: PersonResponse }
-
-export default function IndexTemplate(props: IndexTemplateProps) {
+export default function IndexTemplate() {
   return (
-    <Container>
-      <Search />
-      <S.MainGrid>
-        <Aside />
-        <div>
-          <Card
-            title="Tom Holland"
-            subtitle="Acting"
-            image="https://image.tmdb.org/t/p/original/l6zPRmg8NI7Y65G5GUqwvjxFdsx.jpg"
-            description={`Conhecido por: 'Avengers: Infinity War', 'Avengers: Endgame'`}
-          />
-        </div>
-      </S.MainGrid>
-    </Container>
+    <S.Wrapper>
+      <Container>
+        <Search />
+        <S.MainGrid>
+          <Aside />
+          <Results />
+        </S.MainGrid>
+      </Container>
+    </S.Wrapper>
   )
 }

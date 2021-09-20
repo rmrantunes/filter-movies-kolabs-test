@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
 
   body, input, textarea, button {
     font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
   }
 `
 

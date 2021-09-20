@@ -1,21 +1,23 @@
+import { InformationCircleIcon } from '@heroicons/react/outline'
+import { useSearch } from 'hooks/useSearch'
 import FilterButton from 'components/FilterButton'
 import * as S from './styles'
-import { useSearch } from 'hooks/useSearch'
 
 export default function Aside() {
-  const { handleFilter, filter } = useSearch()
+  const { handleFilter, filter, mediaTypesCount, history, search } = useSearch()
 
   return (
     <S.Aside>
-      <S.Filters>
-        <S.Header>
+      <S.AsideCard>
+        <S.AsideCardHeader>
           <h2>Resultado da Busca</h2>
-        </S.Header>
-        <S.Nav>
+        </S.AsideCardHeader>
+        <S.AsideNav>
           <FilterButton
-            onClick={() => ({})}
-            filter="multi"
-            isActive={filter === 'multi'}
+            onClick={handleFilter}
+            filter="all"
+            isActive={filter === 'all'}
+            count={mediaTypesCount.all}
           >
             Tudo
           </FilterButton>
@@ -23,6 +25,7 @@ export default function Aside() {
             onClick={handleFilter}
             filter="movie"
             isActive={filter === 'movie'}
+            count={mediaTypesCount.movie}
           >
             Filmes
           </FilterButton>
@@ -30,6 +33,7 @@ export default function Aside() {
             onClick={handleFilter}
             filter="tv"
             isActive={filter === 'tv'}
+            count={mediaTypesCount.tv}
           >
             Séries
           </FilterButton>
@@ -37,11 +41,35 @@ export default function Aside() {
             onClick={handleFilter}
             filter="person"
             isActive={filter === 'person'}
+            count={mediaTypesCount.person}
           >
             Pessoas
           </FilterButton>
-        </S.Nav>
-      </S.Filters>
+        </S.AsideNav>
+      </S.AsideCard>
+      {!!history.length && (
+        <S.AsideCard>
+          <S.AsideCardHeader>
+            <h2>Histórico de Busca</h2>
+          </S.AsideCardHeader>
+          <S.AsideNav>
+            {history.map((searchText) => (
+              <FilterButton
+                isActive={false}
+                key={searchText}
+                onClick={() => search(searchText)}
+              >
+                {searchText}
+              </FilterButton>
+            ))}
+          </S.AsideNav>
+        </S.AsideCard>
+      )}
+      <S.YearShortcutTip>
+        <InformationCircleIcon />
+        Dica: você pode usar o filtro 'y:' para limitar seus resultados por ano.
+        Exemplo: 'tropa de elite y:2007'
+      </S.YearShortcutTip>
     </S.Aside>
   )
 }

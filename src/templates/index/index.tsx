@@ -7,8 +7,6 @@ import { Results } from 'components/Results'
 
 import * as S from './styles'
 
-export type IndexTemplateProps = { response: MovieDBMultiResponse }
-
 export default function IndexTemplate() {
   return (
     <S.Wrapper>

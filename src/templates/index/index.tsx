@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-import { useSearch } from 'hooks/useSearch'
 import { MovieDBMultiResponse } from 'types/themoviedb-response'
 
 import Aside from 'components/Aside'
